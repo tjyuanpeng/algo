@@ -29,11 +29,12 @@ var maxSubArray = function (nums) {
   let max = nums[0]
   let pre = 0
   for (const num of nums) {
-    if (pre > 0) {
-      pre += num
-    } else {
-      pre = num
-    }
+    // if (pre > 0) {
+    //   pre += num
+    // } else {
+    //   pre = num
+    // }
+    pre = Math.max(pre + num, num)
     max = Math.max(max, pre)
   }
   return max
@@ -43,5 +44,13 @@ describe('最大子数组和', function () {
   it('nums = [-2,1,-3,4,-1,2,1,-5,4]', function () {
     const r = maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])
     r.should.to.equal(6)
+  })
+  it('nums = [1]', function () {
+    const r = maxSubArray([1])
+    r.should.to.equal(1)
+  })
+  it('nums = nums = [5,4,-1,7,8]', function () {
+    const r = maxSubArray([5, 4, -1, 7, 8])
+    r.should.to.equal(23)
   })
 })
