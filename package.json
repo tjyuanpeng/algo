@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "watch": "mocha -w"
   },
   "repository": {
     "type": "git",
@@ -12,8 +13,12 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tjyuanpeng/algo/issues"
-  },
-  "homepage": "https://github.com/tjyuanpeng/algo#readme"
+  "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/register": "^7.16.0",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "prettier": "^2.5.0"
+  }
 }
