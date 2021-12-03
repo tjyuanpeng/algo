@@ -21,10 +21,6 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
-/**
- * @param {number[]} nums
- * @return {number}
- */
 var maxSubArray = function (nums) {
   let max = nums[0]
   let pre = 0
@@ -34,6 +30,12 @@ var maxSubArray = function (nums) {
     // } else {
     //   pre = num
     // }
+    /**
+     * 当前值，比前面的数的总和都大的情况下
+     * 最大子数组和一定是以当前值为基础的子数组
+     * 所以应该从当前值开始继续累加最大值
+     * 也就是划动窗口到当前值
+     */
     pre = Math.max(pre + num, num)
     console.log(pre)
     max = Math.max(max, pre)
