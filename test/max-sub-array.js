@@ -37,7 +37,6 @@ var maxSubArray = function (nums) {
      * 也就是划动窗口到当前值
      */
     pre = Math.max(pre + num, num)
-    console.log(pre)
     max = Math.max(max, pre)
   }
   return max

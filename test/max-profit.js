@@ -25,10 +25,15 @@
 
 var maxProfit = function (prices) {
   let max = 0
-  let min = prices[0]
+  let minPrice = prices[0]
   for (const p of prices) {
-    min = Math.min(min, p)
-    max = Math.max(max, p - min)
+    /**
+     * 找到最小价格
+     * 以最小价格来计算收益，也就是当前价格和最小价格的差
+     * 同时保存最大收益的值，因为当前收益可能不是最大的收益
+     */
+    minPrice = Math.min(minPrice, p)
+    max = Math.max(max, p - minPrice)
   }
   return max
 }
