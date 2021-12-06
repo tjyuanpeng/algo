@@ -24,10 +24,12 @@
 //   const col = grid[0].length
 
 //   // init dp
-//   let dp = new Array(row).fill(0)
-//   dp = dp.map(() => {
-//     return new Array(col).fill(0)
-//   })
+//   // let dp = new Array(row).fill(0)
+//   // dp = dp.map(() => {
+//   //   return new Array(col).fill(0)
+//   // })
+//   let dp = Array.from(Array(row), () => Array(col).fill(0))
+
 //   dp[0][0] = grid[0][0]
 //   console.log(dp)
 

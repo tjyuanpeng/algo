@@ -23,19 +23,41 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
-var maxProfit = function (prices) {
-  let max = 0
-  let minPrice = prices[0]
-  for (const p of prices) {
-    /**
-     * 找到最小价格
-     * 以最小价格来计算收益，也就是当前价格和最小价格的差
-     * 同时保存最大收益的值，因为当前收益可能不是最大的收益
-     */
-    minPrice = Math.min(minPrice, p)
-    max = Math.max(max, p - minPrice)
+// var maxProfit = function (prices) {
+//   let maxProfit = 0
+//   let minPrice = prices[0]
+//   for (const p of prices) {
+//     /**
+//      * 找到最小价格
+//      * 以最小价格来计算收益，也就是当前价格和最小价格的差
+//      * 同时保存最大收益的值，因为当前收益可能不是最大的收益
+//      */
+//     minPrice = Math.min(minPrice, p)
+//     maxProfit = Math.max(maxProfit, p - minPrice)
+//   }
+//   return maxProfit
+// }
+
+let maxProfit = prices => {
+  let dp = Array.from(Array(prices.length), () => Array(2).fill(0))
+
+  // dp[i][0] 表示第i天 持有 股票的收益
+  // dp[i][1] 表示第i天 不持有 股票的收益
+  dp[0][0] = 0 - prices[0]
+  dp[0][1] = 0
+
+  for (let i = 1; i < prices.length; i++) {
+    // 昨天持有的收益
+    // 0 - 价格，买入
+    dp[i][0] = Math.max(dp[i - 1][0], 0 - prices[i])
+
+    // 昨天持有的状态收益 + 当前价格，卖出
+    // 昨天不持有的收益
+    dp[i][1] = Math.max(dp[i - 1][0] + prices[i], dp[i - 1][1])
   }
-  return max
+
+  // 最后一天不持有的收益
+  return dp[prices.length - 1][1]
 }
 
 describe('股票最大收益', function () {
