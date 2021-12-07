@@ -50,7 +50,7 @@ var climbStairs = function (n) {
   return b
 }
 
-describe('每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？', function () {
+describe('爬楼梯问题', function () {
   it('1层有1种方法', function () {
     const r = climbStairs(1)
     r.should.to.equal(1)
