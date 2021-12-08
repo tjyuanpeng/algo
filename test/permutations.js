@@ -21,28 +21,30 @@
  */
 
 let permute = function (nums) {
-  // 使用一个数组保存所有可能的全排列
-  let res = []
   if (nums.length === 0) {
-    return res
+    return []
   }
 
-  let used = {}
+  // 使用一个数组保存所有可能的全排列
+  let res = []
+  // 已经生成的路径
   let path = []
+  // map，保存已经使用的项目
+  let used = {}
 
-  dfs(nums, nums.length, 0, path, used, res)
+  dfs(nums, path, used, res)
 
   return res
 }
 
-let dfs = function (nums, len, depth, path, used, res) {
-  // console.log(depth, path, used)
+let dfs = function (nums, path, used, res) {
   // 所有数都填完了
-  if (depth === len) {
+  if (nums.length === path.length) {
     res.push([...path])
     return
   }
-  for (let i = 0; i < len; i++) {
+
+  for (let i = 0; i < nums.length; i++) {
     if (used[i]) {
       continue
     }
@@ -52,7 +54,7 @@ let dfs = function (nums, len, depth, path, used, res) {
     used[i] = true
 
     // 继续递归填下一个数
-    dfs(nums, len, depth + 1, path, used, res)
+    dfs(nums, path, used, res)
 
     // 撤销操作
     used[i] = false
