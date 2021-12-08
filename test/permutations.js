@@ -20,46 +20,42 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
-let permute = function (nums) {
-  if (nums.length === 0) {
-    return []
-  }
-
+const permute = function (nums) {
   // 使用一个数组保存所有可能的全排列
-  let res = []
-  // 已经生成的路径
-  let path = []
-  // map，保存已经使用的项目
-  let used = {}
+  const res = []
 
-  dfs(nums, path, used, res)
-
-  return res
-}
-
-let dfs = function (nums, path, used, res) {
-  // 所有数都填完了
-  if (nums.length === path.length) {
-    res.push([...path])
-    return
-  }
-
-  for (let i = 0; i < nums.length; i++) {
-    if (used[i]) {
-      continue
+  /**
+   * @param Array path 已经生成的路径
+   * @param Map used 保存项目是否已经使用
+   */
+  const dfs = (path, used) => {
+    // 所有数都填完了
+    if (nums.length === path.length) {
+      res.push([...path])
+      return
     }
 
-    // 动态维护数组
-    path.push(nums[i])
-    used[i] = true
+    for (let i = 0; i < nums.length; i++) {
+      if (used[i]) {
+        continue
+      }
 
-    // 继续递归填下一个数
-    dfs(nums, path, used, res)
+      // 动态维护数组
+      path.push(nums[i])
+      used[i] = true
 
-    // 撤销操作
-    used[i] = false
-    path.pop()
+      // 继续递归填下一个数
+      dfs(path, used)
+
+      // 撤销操作
+      used[i] = false
+      path.pop()
+    }
   }
+
+  dfs([], {})
+
+  return res
 }
 
 describe('全排列问题', function () {

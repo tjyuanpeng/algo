@@ -18,6 +18,12 @@
 const generateParenthesis = n => {
   const res = []
 
+  /**
+   * @param String path 已经生成的路径
+   * @param Number left 左括号数量
+   * @param Number right 右括号数量
+   * @returns
+   */
   const dfs = (path, left, right) => {
     // 肯定不合法，提前结束
     if (left > n || left < right) {
