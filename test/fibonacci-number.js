@@ -54,7 +54,7 @@ describe('斐波那契数列', function () {
     r.should.to.equal(2)
   })
   it('4', function () {
-    const r = fib(4)
+    const r = fib2(4)
     r.should.to.equal(3)
   })
 })
