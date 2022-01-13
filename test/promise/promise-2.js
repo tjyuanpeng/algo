@@ -150,8 +150,8 @@ class Promise {
   }
 }
 
-describe('promise', function () {
-  it('test', function () {
+describe('promise-2', function () {
+  it('case 1', function () {
     return new Promise(function (resolve) {
       resolve(true)
     }).then(function (r) {

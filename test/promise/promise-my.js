@@ -122,3 +122,13 @@ class promise {
     return promise
   }
 }
+
+describe('promise-my', function () {
+  it('case 1', function () {
+    return new Promise(function (resolve) {
+      resolve(true)
+    }).then(function (r) {
+      r.should.to.equals(true)
+    })
+  })
+})
