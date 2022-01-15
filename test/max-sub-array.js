@@ -25,11 +25,6 @@ var maxSubArray = function (nums) {
   let max = nums[0]
   let pre = 0
   for (const num of nums) {
-    // if (pre > 0) {
-    //   pre += num
-    // } else {
-    //   pre = num
-    // }
     /**
      * 当前值，比前面的数的总和都大的情况下
      * 最大子数组和一定是以当前值为基础的子数组
