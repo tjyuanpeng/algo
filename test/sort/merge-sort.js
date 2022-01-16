@@ -1,5 +1,8 @@
 /**
   归并排序
+
+  https://segmentfault.com/a/1190000008866524
+  https://segmentfault.com/a/1190000037697664
  */
 
 function mergeSort(arr) {
