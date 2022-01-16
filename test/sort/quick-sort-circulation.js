@@ -6,12 +6,11 @@
 
 function quickSort(arr, left, right) {
   var len = arr.length
-  var partitionIndex
   var left = typeof left !== 'number' ? 0 : left
   var right = typeof right !== 'number' ? len - 1 : right
 
   if (left < right) {
-    partitionIndex = partition(arr, left, right)
+    var partitionIndex = partition(arr, left, right)
 
     quickSort(arr, left, partitionIndex - 1)
     quickSort(arr, partitionIndex + 1, right)
@@ -22,7 +21,7 @@ function quickSort(arr, left, right) {
 
 function partition(arr, left, right) {
   var pivot = left
-  var index = pivot + 1
+  var index = left + 1
   for (var i = index; i <= right; i++) {
     // 小于pivot的都放到一边
     if (arr[i] < arr[pivot]) {
