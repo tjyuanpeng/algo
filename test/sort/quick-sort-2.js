@@ -1,5 +1,5 @@
 /**
-  快速排序 - 循环算法
+  快速排序2
   https://www.jianshu.com/p/f5b157a974b0
   https://github.com/hustcc/JS-Sorting-Algorithm/blob/master/6.quickSort.md
  */
@@ -44,7 +44,7 @@ function swap(arr, i, j) {
   arr[j] = temp
 }
 
-describe('快速排序 - 循环算法', function () {
+describe('快速排序2', function () {
   it('case 1', function () {
     const r = quickSort([85, 24, 63, 45, 17, 31, 96, 50])
     const anwser = [17, 24, 31, 45, 50, 63, 85, 96]
