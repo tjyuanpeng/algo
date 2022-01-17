@@ -1,14 +1,13 @@
 /**
   快速排序2
-  
+
   https://www.jianshu.com/p/f5b157a974b0
   https://github.com/hustcc/JS-Sorting-Algorithm/blob/master/6.quickSort.md
  */
 
 function quickSort(arr, left, right) {
-  var len = arr.length
-  var left = typeof left !== 'number' ? 0 : left
-  var right = typeof right !== 'number' ? len - 1 : right
+  var left = left === undefined ? 0 : left
+  var right = right === undefined ? arr.length - 1 : right
 
   if (left < right) {
     var partitionIndex = partition(arr, left, right)
