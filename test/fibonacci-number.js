@@ -27,6 +27,13 @@ F(n) = F(n - 1) + F(n - 2)，其中 n > 1
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
+var fib1 = function (n) {
+  if (n < 2) {
+    return n
+  }
+  return fib(n - 1) + fib(n - 2)
+}
+
 var fib2 = function (n) {
   var dp = Array(n).fill(0)
   dp[0] = 0
@@ -41,7 +48,15 @@ var fib = function (n) {
   if (n < 2) {
     return n
   }
-  return fib(n - 1) + fib(n - 2)
+  let dpA = 0
+  let dpB = 1
+  let dpN
+  for (var i = 2; i <= n; i++) {
+    dpN = dpA + dpB
+    dpA = dpB
+    dpB = dpN
+  }
+  return dpN
 }
 
 describe('斐波那契数列', function () {
