@@ -31,39 +31,27 @@ var exist = function (board, word) {
 }
 
 function dfs(board, word, visited, row, col, char) {
-  if (char >= word.length) {
+  if (char === word.length) {
     return true
   }
 
-  const rows = board.length
-  if (row < 0 || row >= rows) {
-    return false
-  }
-  const cols = board[0].length
-  if (col < 0 || col >= cols) {
+  if (row < 0 || row >= board.length || col < 0 || col >= board[0].length) {
     return false
   }
 
-  if (word[char] !== board[row][col]) {
-    return false
-  }
-  if (visited[row][col]) {
+  if (word[char] !== board[row][col] || visited[row][col]) {
     return false
   }
 
   visited[row][col] = true
-
-  const top = dfs(board, word, visited, row - 1, col, char + 1)
-  const right = dfs(board, word, visited, row, col + 1, char + 1)
-  const bottom = dfs(board, word, visited, row + 1, col, char + 1)
-  const left = dfs(board, word, visited, row, col - 1, char + 1)
-
-  if (top || right || bottom || left) {
-    return true
-  }
-
+  const result =
+    dfs(board, word, visited, row - 1, col, char + 1) ||
+    dfs(board, word, visited, row, col + 1, char + 1) ||
+    dfs(board, word, visited, row + 1, col, char + 1) ||
+    dfs(board, word, visited, row, col - 1, char + 1)
   visited[row][col] = false
-  return false
+
+  return result
 }
 
 describe('79 单词搜索', function () {
