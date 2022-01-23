@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "args": [
+                "${workspaceFolder}/test/word-search.js"
+            ],
+            "internalConsoleOptions": "openOnSessionStart",
+            "name": "Mocha Tests",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        }
+    ]
+}
