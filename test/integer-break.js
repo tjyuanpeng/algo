@@ -31,8 +31,8 @@ var integerBreak = function (n) {
   }
 
   const dp = Array(n + 1).fill(0)
-  dp[0] = 0
-  dp[1] = 1
+  // dp[0] = 0
+  // dp[1] = 1
   dp[2] = 2
   dp[3] = 3
 
@@ -41,6 +41,12 @@ var integerBreak = function (n) {
       dp[i] = Math.max(dp[j] * dp[i - j], dp[i])
     }
   }
+
+  // for (let i = 3; i <= n; i++) {
+  //   for (let j = 1; j <= i - 1; j++) {
+  //     dp[i] = Math.max(j * (i - j), dp[j] * dp[i - j], dp[i])
+  //   }
+  // }
 
   return dp[n]
 }
