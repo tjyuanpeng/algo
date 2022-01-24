@@ -45,6 +45,22 @@ var integerBreak = function (n) {
   return dp[n]
 }
 
+var integerBreak2 = function (n) {
+  if (n < 4) {
+    return n - 1
+  }
+  let res = 1
+
+  // 每次减去3，最终的乘积最大
+  // 长度小于等于4时，不再裁减，保持原长度乘积最大。
+  while (n > 4) {
+    res = (res * 3) % 1000000007
+    n -= 3
+  }
+
+  return (res * n) % 1000000007
+}
+
 describe('整数拆分', function () {
   it('2', function () {
     const r = integerBreak(2)
