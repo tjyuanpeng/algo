@@ -2,7 +2,7 @@
     "configurations": [
         {
             "args": [
-                "${workspaceFolder}/test/word-search.js"
+                "${workspaceFolder}/test/integer-break.js"
             ],
             "internalConsoleOptions": "openOnSessionStart",
             "name": "Mocha Tests",
